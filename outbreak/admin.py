@@ -14,3 +14,5 @@ class OutbreakAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Outbreak, OutbreakAdmin)
+admin.site.site_header = "Contact Tracing ";
+admin.site.site_title = "Contact Tracing ";
