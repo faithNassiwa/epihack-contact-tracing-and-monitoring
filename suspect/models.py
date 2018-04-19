@@ -6,6 +6,7 @@ from django.db import models
 # Create your models here.
 
 class Suspect(models.Model):
+    case_id = models.CharField(max_length=14, blank=True, null=True)
     nin = models.CharField(max_length=14, blank=True, null=True)
     surname = models.CharField(max_length=100, blank=True, null=True)
     first_name = models.CharField(max_length=100, blank=True, null=True)
