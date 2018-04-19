@@ -5,6 +5,20 @@ from django.db import models
 
 # Create your models here.
 
+SEX = (
+    ('male', 'Male'),
+    ('female', 'Female')
+
+)
+
+STATUS = (
+    ('admitted', 'Admitted'),
+    ('discharged', 'Discharged'),
+    ('loss to follow up ', 'Loss to follow up '),
+    ('dead', 'Dead')
+
+)
+
 class Suspect(models.Model):
     case_id = models.CharField(max_length=14, blank=True, null=True)
     nin = models.CharField(max_length=14, blank=True, null=True)
@@ -13,10 +27,11 @@ class Suspect(models.Model):
     head_of_household = models.CharField(max_length=100, blank=True, null=True)
     phone_number = models.CharField(max_length=100, blank=True, null=True)
     date_of_birth = models.DateField()
-    sex = models.CharField(max_length=14, blank=True, null=True)
+    sex = models.CharField(max_length=14, blank=True, null=True, choices=SEX)
     village_name = models.CharField(max_length=100, blank=True, null=True)
     date_of_onset = models.DateField()
-    status = models.CharField(max_length=100, blank=True, null=True)
-    created_on = models.DateTimeField()
+    status = models.CharField(max_length=100, blank=True, null=True, choices=STATUS)
+    created_on = models.DateTimeField(auto_now_add=True)
+    modified_on = models.DateTimeField(auto_now=True)
 
 
