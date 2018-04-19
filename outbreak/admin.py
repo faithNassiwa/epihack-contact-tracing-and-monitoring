@@ -6,6 +6,8 @@ from models import *
 # Register your models here.
 
 class OutbreakAdmin(admin.ModelAdmin):
+    list_display = ('name', 'notes', 'created_on', 'modified_on')
+    filter = ('name', 'created_on')
 
     class Meta:
         model = Outbreak

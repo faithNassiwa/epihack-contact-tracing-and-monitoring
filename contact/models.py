@@ -29,6 +29,8 @@ class Contact(models.Model):
     date_of_birth = models.DateField()
     sex = models.CharField(max_length=14, blank=True, null=True, choices=SEX)
     village_name = models.CharField(max_length=100, blank=True, null=True)
+    latitude = models.FloatField(default=0.347596)
+    longitude = models.FloatField(default=32.582520)
     relation_to_suspect = models.CharField(max_length=100, blank=True, null=True)
     patient_zero = models.ForeignKey(Suspect)
     date_of_last_contact = models.DateField()

@@ -10,6 +10,7 @@ class SuspectAdmin(admin.ModelAdmin):
     list_display = ('nin', 'surname', 'first_name', 'head_of_household', 'phone_number', 'date_of_birth', 'sex',
                     'village_name', 'date_of_onset', 'status', 'created_on')
     seacrh_field = ['surname ', 'first_name', 'nin']
+    list_filter = ('case_id', 'village_name', 'status', 'created_on', 'sex')
 
     class Meta:
         model = Suspect

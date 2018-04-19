@@ -6,6 +6,7 @@ from models import *
 # Register your models here.
 
 class SymptomAdmin(admin.ModelAdmin):
+    list_display = ('name', 'symptom_notes', 'outbreak', 'created_on', 'modified_on')
 
     class Meta:
         model = Symptom

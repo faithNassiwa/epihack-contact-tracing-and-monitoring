@@ -29,6 +29,8 @@ class Suspect(models.Model):
     date_of_birth = models.DateField()
     sex = models.CharField(max_length=14, blank=True, null=True, choices=SEX)
     village_name = models.CharField(max_length=100, blank=True, null=True)
+    latitude = models.FloatField(default=0.347596)
+    longitude = models.FloatField(default=32.582520)
     date_of_onset = models.DateField()
     status = models.CharField(max_length=100, blank=True, null=True, choices=STATUS)
     created_on = models.DateTimeField(auto_now_add=True)

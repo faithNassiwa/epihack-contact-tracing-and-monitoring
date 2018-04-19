@@ -1,0 +1,80 @@
+{% load static %}
+<!doctype html>
+<html lang="en" style="position: relative; min-height: 100%;">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0 minimal-ui"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+
+{#        <link rel="shortcut icon" href="{% static "favicon.ico" %}" />#}
+
+        <title>{% block title %}{% endblock %}</title>
+
+        {# Load the tag library #}
+        {% load bootstrap3 %}
+
+        {# Load CSS and JavaScript #}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+
+        {# Display django.contrib.messages as Bootstrap alerts #}
+        {% bootstrap_messages %}
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
+        <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.js"></script>
+        <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+        {% block head %}{% endblock %}
+    </head>
+    <body style="margin-bottom: 60px;">
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/"><i class="fas fa-chart-line"></i> Contact Tracing Dashboard</a>
+                    <button class="navbar-toggle" data-target="#navbar-main" data-toggle="collapse" type="button">
+                    </button>
+                </div>
+                <div id="navbar-main" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Report</a></li>
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                             aria-expanded="false">Contacts<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fas fa-arrow-alt-circle-down"></i> SMS Maama ANC</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-alt-circle-down"></i> SMS Maama Baby </a></li>
+                            <li><a href="#"><i class="fas fa-arrow-alt-circle-down"></i> SMS Maama Opt Out</a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                             aria-expanded="false">Messages<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fas fa-arrow-alt-circle-down"></i> Messages Count Weekly</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-alt-circle-down"></i> Outgoing & Incoming </a></li>
+                            <li><a href="#"><i class="fas fa-arrow-alt-circle-down"></i> All Failed Messages</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-alt-circle-down"></i> All Pending Messages</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-alt-circle-down"></i> All Delivered Messages</a></li>
+                          </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <br/><br/><br/>
+
+        {% block content %}{% endblock %}
+
+    <footer class="footer" style="position: absolute; bottom: 0; width: 100%; height: 60px; background-color: #f5f5f5;">
+        <div class="container">
+            <br>
+            <p class="footer-copyright text-muted">&copy {% now 'Y' %} EpiHack. All rights reserved. </p>
+        </div>
+
+    </footer>
+    </body>
+</html>
