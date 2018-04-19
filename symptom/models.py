@@ -12,3 +12,6 @@ class Symptom(models.Model):
     outbreak = models.ForeignKey(Outbreak, blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     modified_on = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.name

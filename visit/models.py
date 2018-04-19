@@ -26,13 +26,19 @@ class Visit(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     modified_on = models.DateTimeField(auto_now=True)
 
+    def __unicode__(self):
+        return self.suspect.surname
+
 
 class DailyFollowUp(models.Model):
-    symptoms = models.ForeignKey(Symptom, blank=True, null=True)
+    symptom = models.ForeignKey(Symptom, blank=True, null=True)
     symptom_status = models.CharField(max_length=20, blank=True, null=True, choices=SYMPTOM_STATUS )
     visit = models.ForeignKey(Visit, blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     modified_on = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.symptom.name
 
 
 
